@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+* {
+    margin: 0s;
+    padding: 0;
+}
+
+.bg {
+    height: calc(100% - 50px);
+    overflow: auto;
+    background:linear-gradient(110deg,#02141d,#19475e);
+}
