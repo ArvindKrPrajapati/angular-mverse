@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
 import { DetailsComponent } from './details/details.component';
 import { PlayComponent } from './play/play.component';
+import { ItemsComponent } from './items/items.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PlayComponent } from './play/play.component';
     MoviesComponent,
     DetailsComponent,
     PlayComponent,
+    ItemsComponent,
     ],
   imports: [
     BrowserModule,
