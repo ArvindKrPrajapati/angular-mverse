@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   }
   saving: boolean = false
   selectedmovie: any;
-  url: string = "https://api.themoviedb.org/3/search/movie/?query="
+  url: string = "https://api.themoviedb.org/3/search/movie?query="
   imgUrl: string = "https://image.tmdb.org/t/p/w300"
   addUrl: string = "https://api-shorts.herokuapp.com/v1/movie"
   loading: boolean = false
