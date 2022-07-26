@@ -1,0 +1,58 @@
+<div class="container-fluid sticky-top d-none d-md-block" style="height: 50px;">
+    <div class="row">
+        <header class="col p-2"
+            style="display:flex;justify-content: space-between;align-items: center; border-bottom: 1px solid #020e13;background-color: #020e13;">
+            <img style="width:120px" src="../assets/logo.png" />
+            <div class="d-flex">
+                <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
+                <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
+                <a routerLink="/all" class="btn text-white btn-sm">All Movies</a>
+            </div>
+        </header>
+    </div>
+</div>
+
+<div class="bg">
+    <div *ngIf="loading" style="height: 100vh;display: flex;justify-content:center ;align-items: center;">
+        <div class="spinner-grow text-light" role="status"> </div>
+    </div>
+    <div class="container main">
+        <div *ngIf="!loading" class="row">
+            <div class="col-12 col-md-8 sticky-top">
+                <video controls class="video">
+                    <source *ngIf="data.links[data.links.length-1].p_320"
+                        [src]="data.links[data.links.length - 1].p_320" />
+                    <source *ngIf="data.links[data.links.length-1].p_480"
+                        [src]="data.links[data.links.length - 1].p_480" />
+                    <source *ngIf="data.links[data.links.length-1].p_720"
+                        [src]="data.links[data.links.length - 1].p_720" />
+                    <source *ngIf="data.links[data.links.length-1].p_1080"
+                        [src]="data.links[data.links.length - 1].p_1080" />
+                </video>
+            </div>
+            <div class="col-12 col-md-4 details">
+                <b class="title">{{data.title}}</b>
+                <br><br>
+                <div class="row text-white">
+                    <div class="col-6">
+                        <div>
+                            <h5>{{data.vote_average}} / 10</h5>
+                            <p>Rating</p>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <div>
+                            <h5>{{data.original_language}} </h5>
+                            <p>Language</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="text-white">
+                    <b class="overview">Overview</b>
+                    <p>{{data.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

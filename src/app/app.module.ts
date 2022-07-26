@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
+import { DetailsComponent } from './details/details.component';
+import { PlayComponent } from './play/play.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MoviesComponent } from './movies/movies.component';
     SearchComponent,
     HomeComponent,
     MoviesComponent,
-  ],
+    DetailsComponent,
+    PlayComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
