@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,20 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   id: any;
   data: any = []
-  imgUrl: string = "https://image.tmdb.org/t/p/w300"
-  url: string = "https://api-shorts.herokuapp.com/v1/movie?id="
+  imgUrl: string = "https://image.tmdb.org/t/p/w500"
   loading: boolean = true
+  url: string = "https://api.themoviedb.org/3/movie/"
+  token: string = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2JhYjIwYmZiMDUzOTNlMDFiZjFmZjg1OTY2NzI1NSIsInN1YiI6IjYyZGJjZDhkZTMyM2YzMDM2YWRlMmE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A-ZzzYQ4QU7SqOzUJv_Wfpeh0hDYXA2aIUQ3Twggzsw"
+  
   constructor(private _route: ActivatedRoute, private _http: HttpClient) {
     this.id = _route.snapshot.paramMap.get("id")
   }
 
   ngOnInit(): void {
-    this._http.get(this.url + this.id)
+    this._http.get(this.url+this.id , { headers: new HttpHeaders({ "Authorization": this.token }) })
       .subscribe((res: any) => {
-        if (res.success && res.data) {
-          this.data = res.data
-          this.loading = false
-        }
+       this.data=res
+       this.loading=false
       })
   }
 

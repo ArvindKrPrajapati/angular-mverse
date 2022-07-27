@@ -1,30 +1,50 @@
-<div class="container-fluid sticky-top" style="height: 50px;">
-    <div class="row">
-        <header class="col p-2"
-            style="display:flex;justify-content: space-between;align-items: center; border-bottom: 1px solid #020e13;background-color: #020e13;">
-            <img style="width:120px" src="../assets/logo.png" />
-            <div class="d-flex">
-                <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
-                <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
-                <a routerLink="/all" class="btn text-white btn-sm">All Movies</a>
-            </div>
-        </header>
-    </div>
-</div>
+<app-header></app-header>
 
 <div class="bg">
     <div class="container">
         <br>
-        <p class="display-6 text-white" style="font-size: 1em;">All Movies</p>
-        <div class="row">
-            <div *ngIf="loading" style="height: 80vh;display: flex;justify-content:center ;align-items: center;">
-                <div class="spinner-grow text-light" role="status"> </div>
-            </div>
-            <a *ngFor="let d of data" class="text-white col-4 col-md-2" [routerLink]="['/details/',d.id]" style="text-decoration: none;padding-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <p class="display-6 text-white" style="font-size: 1em;">{{pageTitle}}</p>
+            <a routerLink="/search" class="btn ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </a>
+        </div>
+        <div *ngIf="loading" style="height: 80vh;display: flex;justify-content:center ;align-items: center;">
+            <div class="spinner-grow text-light" role="status"> </div>
+        </div>
+        <div class="row" *ngIf="!loading">
+            <a class="mylink" *ngFor="let d of data" class="text-white col-4 col-md-2" [routerLink]="['/details/',d.id]"
+                style="text-decoration: none;padding-bottom: 10px;">
                 <img style="width: 100%; display: block; aspect-ratio: 1/1.3; border-radius:10px; background-color: #072e3f;"
                     [src]="imgUrl+d.poster_path" />
-                <b><small>{{d.title}}</small></b>
+                <b><small
+                        style="width:100%; display: block; overflow: hidden; white-space: nowrap;">{{d.title}}</small></b>
             </a>
+        </div>
+        <div class="row  mb-3 p-3" *ngIf="!loading">
+            <div class="col m-3 d-flex justify-content-center">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item" *ngIf="!(page==1)">
+                            <a class="page-link" [routerLink]="['/'+title,1]" tabindex="-1">1</a>
+                        </li>
+                        <li class="page-item" *ngIf="!(page==1)">
+                            <a class="page-link" [routerLink]="['/'+title,page-1]" tabindex="-1">Previous</a>
+                        </li>
+                       
+                        <li class="page-item active">
+                            <a class="page-link">{{page}}</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" [routerLink]="['/'+title,page+1]">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>

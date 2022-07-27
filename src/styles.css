@@ -17,3 +17,25 @@ body {
     overflow: auto;
     background:linear-gradient(110deg,#02141d,#19475e);
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background:inherit;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #19475e;
+    border-radius: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .img{
+     aspect-ratio: 7/4;
+    }
+    ::-webkit-scrollbar {
+       display: none;
+      }
+ }
+  

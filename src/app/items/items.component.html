@@ -1,5 +1,7 @@
 <div style="margin-left: 18px;">
-    <img class="img" [src]="imgUrl+data.poster_path" />
-    <br>
-    <small style="text-overflow: ellipsis;color: white;">{{data.title}}</small>
+    <a [routerLink]="['/details',data.id]">
+        <img class="img" [src]="imgUrl+data.poster_path" />
+        <br>
+        <small style="text-overflow: ellipsis;color: white;">{{data.title}}</small>
+    </a>
 </div>

@@ -1,19 +1,9 @@
-<div class="container-fluid sticky-top" style="height: 50px;">
-  <div class="row">
-    <header class="col p-2"
-      style="display:flex;justify-content: space-between;align-items: center; border-bottom: 1px solid #020e13;background-color: #020e13;">
-      <img style="width:120px" src="../assets/logo.png" />
-      <div class="d-flex">
-        <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
-        <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
-        <a routerLink="/all" class="btn text-white btn-sm">All Movies</a>
-      </div>
-    </header>
-  </div>
-</div>
+<app-header></app-header>
 
 <div class="bg">
-  <div class="container p-3">
+  <app-loading  *ngIf="loading"></app-loading>
+
+  <div class="container p-3" *ngIf="!loading">
     <div class="row">
       <div class="col">
         <ngb-carousel #carousel [interval]="4000" [pauseOnHover]="true" [pauseOnFocus]="true" (slide)="onSlide($event)">
@@ -30,12 +20,12 @@
         </ngb-carousel>
       </div>
     </div>
-
+<!-- popular -->
     <div class="row">
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Popular</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="">see more </a>
+          <a class="text-white" style="text-decoration: none;" routerLink="/popular/1">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -46,12 +36,12 @@
     </div>
 
 
-
+<!-- top rated -->
     <div class="row">
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Top Rated</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="">see more </a>
+          <a class="text-white" style="text-decoration: none;" routerLink="/top-rated/1">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -61,12 +51,12 @@
       </div>
     </div>
 
-
+<!-- hindi movies -->
     <div class="row">
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Hindi Movies</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="">see more </a>
+          <a class="text-white" style="text-decoration: none;" routerLink="/hindi-movies/1">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -75,10 +65,10 @@
         </div>
       </div>
     </div>
-
-    <div class="row p-5">
+<!-- all movies -->
+    <div class="row p-3">
       <div class="col d-flex justify-content-center">
-        <a routerLink="" class="btn text-white">Discover More >>></a>
+        <a routerLink="/all/1" class="btn text-white">Discover More >>></a>
       </div>
     </div>
   </div>

@@ -1,0 +1,12 @@
+a{
+    transition: all .4s ease;
+    text-decoration: none;
+}
+a:active{
+    display: block;
+   transform: scale(0.9);
+}
+a:hover{
+    display: block;
+   transform: scale(0.9);
+}

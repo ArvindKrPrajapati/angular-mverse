@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
+import { HindiComponent } from './hindi/hindi.component';
 import { HomeComponent } from './home/home.component';
-import { MoviesComponent } from './movies/movies.component';
 import { PlayComponent } from './play/play.component';
+import { PopularComponent } from './popular/popular.component';
 import { SearchComponent } from './search/search.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
 
 const routes: Routes = [
  
@@ -13,8 +16,20 @@ const routes: Routes = [
     component:SearchComponent
   },
   {
-    path:"all",
-    component:MoviesComponent
+    path:"all/:page",
+    component:AllComponent
+  },
+  {
+    path:"popular/:page",
+    component:PopularComponent
+  },
+  {
+    path:"top-rated/:page",
+    component:TopRatedComponent
+  },
+  {
+    path:"hindi-movies/:page",
+    component:HindiComponent
   },
   {
     path:"details/:id",

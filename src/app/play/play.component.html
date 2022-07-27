@@ -1,4 +1,4 @@
-<div class="container-fluid sticky-top d-none d-md-block" style="height: 50px;">
+<!-- <div class="container-fluid sticky-top " style="height: 50px;">
     <div class="row">
         <header class="col p-2"
             style="display:flex;justify-content: space-between;align-items: center; border-bottom: 1px solid #020e13;background-color: #020e13;">
@@ -10,17 +10,17 @@
             </div>
         </header>
     </div>
-</div>
-
+</div> -->
+<app-header class="d-none d-md-block"></app-header>
 <div class="bg">
-    <div *ngIf="loading" style="height: 100vh;display: flex;justify-content:center ;align-items: center;">
-        <div class="spinner-grow text-light" role="status"> </div>
-    </div>
+    <app-loading  *ngIf="loading"></app-loading>
+
     <div class="container main">
         <div *ngIf="!loading" class="row">
             <div class="col-12 col-md-8 sticky-top">
-                <video controls class="video">
-                    <source *ngIf="data.links[data.links.length-1].p_320"
+                <img [src]="imgUrl+data.backdrop_path" alt="" class="video">
+                <!-- <video controls class="video">
+                    <source *ngIf="data?.links[data.links.length-1].p_320"
                         [src]="data.links[data.links.length - 1].p_320" />
                     <source *ngIf="data.links[data.links.length-1].p_480"
                         [src]="data.links[data.links.length - 1].p_480" />
@@ -28,7 +28,7 @@
                         [src]="data.links[data.links.length - 1].p_720" />
                     <source *ngIf="data.links[data.links.length-1].p_1080"
                         [src]="data.links[data.links.length - 1].p_1080" />
-                </video>
+                </video> -->
             </div>
             <div class="col-12 col-md-4 details">
                 <b class="title">{{data.title}}</b>
