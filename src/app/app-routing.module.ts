@@ -8,12 +8,17 @@ import { PlayComponent } from './play/play.component';
 import { PopularComponent } from './popular/popular.component';
 import { SearchComponent } from './search/search.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
+import { WatchNowComponent } from './watch-now/watch-now.component';
 
 const routes: Routes = [
  
   {
     path:"search",
     component:SearchComponent
+  },
+  {
+    path:"watch-now/:page",
+    component:WatchNowComponent
   },
   {
     path:"all/:page",

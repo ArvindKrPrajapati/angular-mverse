@@ -12,7 +12,7 @@
       <div class="d-flex">
         <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
         <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
-        <a routerLink="/all" class="btn text-white btn-sm">All Movies</a>
+        <a routerLink="/watch-now/1" class="btn text-white btn-sm">All Movies</a>
       </div>
     </header>
   </div>
@@ -33,8 +33,9 @@
         </div>
         <!-- search in mobile endddd -->
         <br>
-        <div *ngFor="let d of data"
-          style="display: flex;align-items: flex-start; margin-top:10px; background-color: #0f2d3a; border-radius: 10px;"
+        <a   *ngFor="let d of data"
+         [routerLink]="['/details',d.id]"
+          style="text-decoration: none;display: flex;align-items: flex-start; margin-top:10px; background-color: #0f2d3a; border-radius: 10px;"
           class="p-3 text-white">
           <img style="width: 120px; aspect-ratio: 1/1.3; border-radius:10px; background-color: #072e3f;"
             [src]="imgUrl+d.poster_path" />
@@ -43,9 +44,9 @@
             <p style="margin: 0;">Rating : {{parsefloat(d.vote_average)}} / 10</p>
             <small>Language : {{d.original_language}} </small>
             <small class="d-none d-md-block">{{d.overview}}</small>
-            <button class="btn btn-primary" style="margin: 8px 0px;" (click)="open(content,d)">Add links</button>
+            <button *ngIf="isAdmin" class="btn btn-primary" style="margin: 8px 0px;" (click)="open(content,d)">Add links</button>
           </div>
-        </div>
+        </a>
       </main>
     </div>
   </div>

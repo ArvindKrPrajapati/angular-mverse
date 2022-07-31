@@ -44,6 +44,14 @@ export class MoviesComponent implements OnInit {
       let m = Number(d.getMonth()) + 1
       const dt = d.getFullYear() + "-" + ((m < 10) ? "0" + m : m) + "-" + d.getDate()
       this.fetchData(this.url + "/discover/movie?with_original_language=hi&primary_release_date.lte=" + dt + "&sort_by=release_date.desc&page=" + this.page)
+    } else if (this.title == "watch-now") {
+      this.pageTitle = "Watch Now"
+      this.loading = true
+      this._http.get("https://api-shorts.herokuapp.com/v1/movie/all?page="+this.page)
+        .subscribe((res: any) => {
+          this.data = res.data
+          this.loading = false
+        })
     } else {
       this.pageTitle = "All Movies"
       this.fetchData(this.url + "/discover/movie?page=" + this.page)

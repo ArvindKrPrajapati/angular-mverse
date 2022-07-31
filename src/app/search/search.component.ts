@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component ,OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,6 +14,7 @@ export class SearchComponent implements OnInit {
   title = 'MVerse';
   data: any = []
   linksLoading: boolean = false
+  isAdmin:boolean=false
   link = {
     p_320: "", p_480: "", p_720: "", p_1080: ""
   }
@@ -23,7 +25,7 @@ export class SearchComponent implements OnInit {
   addUrl: string = "https://api-shorts.herokuapp.com/v1/movie"
   loading: boolean = false
   token: string = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2JhYjIwYmZiMDUzOTNlMDFiZjFmZjg1OTY2NzI1NSIsInN1YiI6IjYyZGJjZDhkZTMyM2YzMDM2YWRlMmE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A-ZzzYQ4QU7SqOzUJv_Wfpeh0hDYXA2aIUQ3Twggzsw"
-  constructor(private _http: HttpClient, config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(private _http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,private _route:ActivatedRoute) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -79,6 +81,12 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._route.queryParams.subscribe((p:any)=>{
+       let admin=p.admin
+       if(admin=="arvind"){
+        this.isAdmin=true
+       }
+    })
   }
 
 }

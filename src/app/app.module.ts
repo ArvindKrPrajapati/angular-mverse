@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WatchNowComponent } from './watch-now/watch-now.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { environment } from '../environments/environment';
     AllComponent,
     HeaderComponent,
     LoadingComponent,
+    WatchNowComponent,
     ],
   imports: [
     BrowserModule,
