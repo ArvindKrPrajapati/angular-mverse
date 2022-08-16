@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
+import { FembedComponent } from './fembed/fembed.component';
 import { HindiComponent } from './hindi/hindi.component';
 import { HomeComponent } from './home/home.component';
 import { PlayComponent } from './play/play.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path:"play/:id",
     component:PlayComponent
+  },
+  {
+    path:"embed/:id",
+    component:FembedComponent
   },
   {
     path:"",
