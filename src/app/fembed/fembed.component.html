@@ -13,31 +13,19 @@
 </div> -->
 <app-header class="d-none d-md-block"></app-header>
 <div class="bg">
-    <app-loading  *ngIf="loading"></app-loading>
+    <app-loading *ngIf="loading"></app-loading>
 
     <div *ngIf="data" class="container main">
         <div *ngIf="!loading" class="row">
-            <div class="col-12 col-md-8 sticky-top">
-                <iframe class="video" 
-                 [src]="src" 
-                width="100%"
-                 height="100%" 
-                 allowfullscreen="allowfullscreen" 
-                 frameborder="0">
-                </iframe> 
-                <!-- <video controls class="video" autoplay>
-                    <source *ngIf="data.links[data.links.length-1].p_320"
-                        [src]="data.links[data.links.length - 1].p_320" />
-                    <source *ngIf="data.links[data.links.length-1].p_480"
-                        [src]="data.links[data.links.length - 1].p_480" />
-                    <source *ngIf="data.links[data.links.length-1].p_720"
-                        [src]="data.links[data.links.length - 1].p_720" />
-                    <source *ngIf="data.links[data.links.length-1].p_1080"
-                        [src]="data.links[data.links.length - 1].p_1080" />
-                </video>  -->
+            <div class="col-12 col-md-8" style="position: sticky; top:0">
+                <iframe class="video" [src]="src" width="100%" height="100%" allowfullscreen="allowfullscreen"
+                    frameborder="0">
+                </iframe>
             </div>
+
+
             <div class="col-12 col-md-4 details">
-                <b class="title">{{data.title}}</b>
+                <b class="title">{{data.title || data.name}}</b>
                 <br><br>
                 <div class="row text-white">
                     <div class="col-6">
@@ -59,20 +47,34 @@
                     <p>{{data.overview}}</p>
                 </div>
                 <br>
-                   <!-- genres -->
-                   <b class="overview text-white">Genres</b>
-                   <div class="row">
-                       <div *ngFor="let g of data.genres" class="col-4 mb-1 mt-1">
-                           <div style="background-color:wheat;font-weight: bold; padding: 10px; border-radius: 30px; font-size: 0.8em;text-align: center;"
-                               class="text-dark">
-                               {{g.name}}
-                           </div>
-                       </div>
-                   </div>
+                <!-- genres -->
+                <b class="overview text-white">Genres</b>
+                <div class="row">
+                    <div *ngFor="let g of data.genres" class="col-4 mb-1 mt-1">
+                        <div style="background-color:wheat;font-weight: bold; padding: 10px; border-radius: 30px; font-size: 0.8em;text-align: center;"
+                            class="text-dark">
+                            {{g.name}}
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
+            <div class="col-12 p-3">
+                <div ngbDropdown class="d-inline-block">
+                    <button type="button" class="btn btn-primary" id="dropdown1" ngbDropdownToggle>Select
+                        Season</button>
+                    <div  ngbDropdownMenu aria-labelledby="dropdown1">
+                        <a ngbDropdownItem *ngFor="let d of [].constructor(season); let i = index"
+                            [routerLink]="['/tv/embed',id,i+1,1]">Season {{i+1}}</a>
+                    </div>
+                </div>
+            </div>
+            <h4 class="text-white" *ngIf='type=="tv"'>Season {{s}} Episodes {{e}}</h4>
+        </div>
+        <div *ngIf="!loading && !data" class="container text-white d-flex justify-content-center align-items-center"
+            style="height:90vh ;">
+            <h4>Video is Not Available</h4>
         </div>
     </div>
-    <div *ngIf="!loading && !data" class="container text-white d-flex justify-content-center align-items-center" style="height:90vh ;">
-        <h4>Video is Not Available</h4>
-    </div>
-</div>

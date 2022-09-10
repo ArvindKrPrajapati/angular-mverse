@@ -20,14 +20,22 @@ export class SearchComponent implements OnInit {
   }
   saving: boolean = false
   selectedmovie: any;
-  url: string = "https://api.themoviedb.org/3/search/movie?query="
+  url: string = "https://api.themoviedb.org/3/search/"
   imgUrl: string = "https://image.tmdb.org/t/p/w300"
-  addUrl: string = "https://api-shorts.herokuapp.com/v1/movie"
+  addUrl: string = "https://api-shorts.herokuapp.com/v1/"
   loading: boolean = false
   token: string = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2JhYjIwYmZiMDUzOTNlMDFiZjFmZjg1OTY2NzI1NSIsInN1YiI6IjYyZGJjZDhkZTMyM2YzMDM2YWRlMmE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A-ZzzYQ4QU7SqOzUJv_Wfpeh0hDYXA2aIUQ3Twggzsw"
+  type: string="movie";
+
+
   constructor(private _http: HttpClient, config: NgbModalConfig, private modalService: NgbModal,private _route:ActivatedRoute) {
     config.backdrop = 'static';
     config.keyboard = false;
+     _route.paramMap.subscribe((p:any)=>{
+       if(window.location.href.split("/")[3]=="tv"){
+        this.type="tv"
+       }
+     }) 
   }
 
   open(content: any, d: any) {
@@ -55,7 +63,7 @@ export class SearchComponent implements OnInit {
   searchMovie(e: any) {
     const text = e.target.value;
     this.loading = true
-    this._http.get(this.url + text, { headers: new HttpHeaders({ "Authorization": this.token }) })
+    this._http.get(this.url+this.type+"?query=" + text, { headers: new HttpHeaders({ "Authorization": this.token }) })
       .subscribe((res: any) => {
         this.loading = false
         this.data = res.results;

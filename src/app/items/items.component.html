@@ -1,7 +1,7 @@
 <div style="margin-left: 18px;">
-    <a [routerLink]="['/details',data.id]">
+    <a [routerLink]="['/'+type+'/details',data.id]">
         <img class="img" [src]="imgUrl+data.poster_path" />
         <br>
-        <small style="text-overflow: ellipsis;color: white;">{{data.title}}</small>
+        <small style="text-overflow: ellipsis;color: white;">{{data.title || data.name}}</small>
     </a>
 </div>

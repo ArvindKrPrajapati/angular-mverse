@@ -2,16 +2,17 @@
 
 <div class="bg">
   <app-loading  *ngIf="loading"></app-loading>
-
   <div class="container p-3" *ngIf="!loading">
     <div class="row">
+  <h1 class="text-white">{{type=="tv" ? "Tv Series" : "Movies"}}</h1>
+
       <div class="col">
         <ngb-carousel #carousel [interval]="4000" [pauseOnHover]="true" [pauseOnFocus]="true" (slide)="onSlide($event)">
           <ng-template ngbSlide *ngFor="let img of images; index as i">
             <div class="carousel-caption">
-              <h3>{{carouselData[i].title}}</h3>
+              <h3>{{carouselData[i].title || carouselData[i].name }}</h3>
             </div>
-            <a [routerLink]="['/details',carouselData[i].id]">
+            <a [routerLink]="['/'+type+'/details',carouselData[i].id]">
               <div class="picsum-img-wrapper"> 
                 <img class="img" [src]="img">
               </div>
@@ -25,7 +26,7 @@
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Popular</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="/popular/1">see more </a>
+          <a class="text-white" style="text-decoration: none;" [routerLink]="'/'+type+'/popular/1'">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -41,7 +42,7 @@
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Top Rated</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="/top-rated/1">see more </a>
+          <a class="text-white" style="text-decoration: none;" [routerLink]="'/'+type+'/top-rated/1'">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -56,7 +57,7 @@
       <div class="col-12">
         <div style="padding: 15px; display:flex;justify-content: space-between;">
           <b style="color: white; font-size:1.3em">Hindi Movies</b>
-          <a class="text-white" style="text-decoration: none;" routerLink="/hindi-movies/1">see more </a>
+          <a class="text-white" style="text-decoration: none;" [routerLink]="'/'+type+'/hindi-movies/1'">see more </a>
         </div>
       </div>
       <div class="col-12 d-flex" style="overflow: auto;">
@@ -68,7 +69,7 @@
 <!-- all movies -->
     <div class="row p-3">
       <div class="col d-flex justify-content-center">
-        <a routerLink="/all/1" class="btn text-white">Discover More >>></a>
+        <a [routerLink]="'/'+type+'/all/1'" class="btn text-white">Discover More >>></a>
       </div>
     </div>
   </div>

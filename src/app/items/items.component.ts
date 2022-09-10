@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-items',
@@ -8,8 +9,15 @@ import { Component, OnInit,Input } from '@angular/core';
 export class ItemsComponent implements OnInit {
  @Input() data:any;
  imgUrl: string = "https://image.tmdb.org/t/p/w500"
+  type: string="movie"
 
-  constructor() { }
+ constructor(private _route: ActivatedRoute) {
+  _route.paramMap.subscribe((p:any)=>{
+     if(window.location.href.split("/")[3]=="tv"){
+      this.type="tv"
+     }
+   })  
+ }
 
   ngOnInit(): void {
   

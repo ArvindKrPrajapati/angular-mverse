@@ -18,6 +18,10 @@ body {
     background:linear-gradient(110deg,#02141d,#19475e);
 }
 
+.active-route{
+  background-color: red;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 8px;

@@ -6,9 +6,9 @@
         <img style="width:120px" src="../assets/logo.png" />
       </a>
       <div class="d-flex">
-        <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
-        <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
-        <!-- <a routerLink="/watch-now/1" class="btn text-white btn-sm">All Movies</a> -->
+        <a routerLink=""  class="btn text-white  btn-sm">Movies</a>&nbsp;&nbsp;
+        <a routerLink="/tv" class="btn text-white btn-sm">Series</a>&nbsp;&nbsp;
+        <a [routerLink]="'/'+type+'/search'" class="btn text-white btn-sm">Search</a>
       </div>
     </header>
   </div>

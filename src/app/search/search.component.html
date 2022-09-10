@@ -10,9 +10,9 @@
       <div [style.visibility]="loading ? 'visible' : 'hidden'"
         class=" d-none d-md-block spinner-border text-light spinner-border-sm" role="status"></div>
       <div class="d-flex">
-        <a routerLink="" class="btn text-white  btn-sm">Home</a>&nbsp;&nbsp;
-        <a routerLink="/search" class="btn text-white btn-sm">Search</a>&nbsp;&nbsp;
-        <!-- <a routerLink="/watch-now/1" class="btn text-white btn-sm">All Movies</a> -->
+        <a routerLink="" class="btn text-white  btn-sm">Movies</a>&nbsp;&nbsp;
+        <a routerLink="/tv" class="btn text-white btn-sm">Series</a>&nbsp;&nbsp;
+        <a routerLink="/search" class="btn text-white btn-sm">Search</a>
       </div>
     </header>
   </div>
@@ -26,7 +26,7 @@
         <!-- search in mobile -->
         <div class="d-flex d-md-none sticky-top" style="display: flex;align-items: center; margin-top: 20px;">
           <input (keyup)="searchMovie($event)" type="search" class="form-control" name="search"
-            placeholder="Search Movie">
+            placeholder="Search">
           <div>
             <div *ngIf="loading" class="spinner-border text-light spinner-border-sm" role="status"></div>
           </div>
