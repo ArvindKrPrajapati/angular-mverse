@@ -58,6 +58,17 @@
                     <b class="overview">Overview</b>
                     <p>{{data.overview}}</p>
                 </div>
+                <br>
+                   <!-- genres -->
+                   <b class="overview text-white">Genres</b>
+                   <div class="row">
+                       <div *ngFor="let g of data.genres" class="col-4 mb-1 mt-1">
+                           <div style="background-color:wheat;font-weight: bold; padding: 10px; border-radius: 30px; font-size: 0.8em;text-align: center;"
+                               class="text-dark">
+                               {{g.name}}
+                           </div>
+                       </div>
+                   </div>
             </div>
         </div>
     </div>

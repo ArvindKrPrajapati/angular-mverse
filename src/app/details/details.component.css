@@ -26,6 +26,8 @@ p,b,h5{
 .overview{
     font-size: 1.5em;
     color: white;
+    display: block;
+    margin: 15px 0px 10px 0px;
 }
 
 @media screen and (max-width: 768px) {

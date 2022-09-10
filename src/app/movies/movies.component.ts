@@ -19,16 +19,12 @@ export class MoviesComponent implements OnInit {
   constructor(private _http: HttpClient, private _route: ActivatedRoute) {
     _route.paramMap.subscribe((p: any) => {
       this.page = Number(p.get("page"))
-      if (this.page > 1) {
         this.handleChange()
-      }
     })
   }
 
-  ngOnInit(): void {
-    if (this.page == 1) {
-      this.handleChange()
-    }
+  ngOnInit(): void { 
+    
   }
 
   handleChange() {

@@ -23,10 +23,10 @@ body {
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background:inherit;
+    background:#19475e;
   }
   ::-webkit-scrollbar-thumb {
-    background: #19475e;
+    background: #02141d;
     border-radius: 20px;
   }
 

@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   pauseOnIndicator = false;
   pauseOnHover = true;
   pauseOnFocus = true;
-
+  carouselData:any=[]
   @ViewChild('carousel', {static : true}) carousel: any;
   ngOnInit(): void {
     this.getdata(this.url+"/movie/popular","popular")
@@ -40,7 +40,9 @@ export class HomeComponent implements OnInit {
       .subscribe((res: any) => {
         if(type=="popular"){
           this.popular=res.results.slice(6,19)
+          this.carouselData=res.results.slice(0,6)
           this.images=res.results.map((n:any) => this.imgUrl+n.backdrop_path).slice(0,6);
+          
           this.loading=false
         }else if(type=="top_rated"){
           this.top_rated=res.results
