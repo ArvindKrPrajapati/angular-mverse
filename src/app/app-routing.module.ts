@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
+import { EmbedVideoComponent } from './embed-video/embed-video.component';
 import { FembedComponent } from './fembed/fembed.component';
 import { HindiComponent } from './hindi/hindi.component';
 import { HomeComponent } from './home/home.component';
@@ -14,79 +15,79 @@ import { WatchNowComponent } from './watch-now/watch-now.component';
 const routes: Routes = [
   // for series
   {
-    path:"tv",
-    component:HomeComponent,
-    pathMatch:'full'
+    path: "tv",
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
-    path:"tv/details/:id",
-    component:DetailsComponent
+    path: "tv/details/:id",
+    component: DetailsComponent
   },
   {
-    path:"tv/all/:page",
-    component:AllComponent
+    path: "tv/all/:page",
+    component: AllComponent
   },
   {
-    path:"tv/popular/:page",
-    component:PopularComponent
+    path: "tv/popular/:page",
+    component: PopularComponent
   },
   {
-    path:"tv/top-rated/:page",
-    component:TopRatedComponent
+    path: "tv/top-rated/:page",
+    component: TopRatedComponent
   },
   {
-    path:"tv/hindi-movies/:page",
-    component:HindiComponent
+    path: "tv/hindi-movies/:page",
+    component: HindiComponent
   },
   {
-    path:"tv/search",
-    component:SearchComponent
+    path: "tv/search",
+    component: SearchComponent
   },
   {
-    path:"tv/embed/:id/:s/:e",
-    component:FembedComponent
+    path: "tv/embed/:id/:s/:e",
+    component: EmbedVideoComponent
   },
-//  for movies
+  //  for movies
   {
-    path:"movie/search",
-    component:SearchComponent
-  },
-  {
-    path:"watch-now/:page",
-    component:WatchNowComponent
+    path: "movie/search",
+    component: SearchComponent
   },
   {
-    path:"movie/all/:page",
-    component:AllComponent
+    path: "watch-now/:page",
+    component: WatchNowComponent
   },
   {
-    path:"movie/popular/:page",
-    component:PopularComponent
+    path: "movie/all/:page",
+    component: AllComponent
   },
   {
-    path:"movie/top-rated/:page",
-    component:TopRatedComponent
+    path: "movie/popular/:page",
+    component: PopularComponent
   },
   {
-    path:"movie/hindi-movies/:page",
-    component:HindiComponent
+    path: "movie/top-rated/:page",
+    component: TopRatedComponent
   },
   {
-    path:"movie/details/:id",
-    component:DetailsComponent
+    path: "movie/hindi-movies/:page",
+    component: HindiComponent
   },
   {
-    path:"play/:id",
-    component:PlayComponent
+    path: "movie/details/:id",
+    component: DetailsComponent
   },
   {
-    path:"movie/embed/:id",
-    component:FembedComponent
+    path: "play/:id",
+    component: PlayComponent
   },
   {
-    path:"",
-    component:HomeComponent,
-    pathMatch:'full'
+    path: "movie/embed/:id",
+    component: EmbedVideoComponent
+  },
+  {
+    path: "",
+    component: HomeComponent,
+    pathMatch: 'full'
   },
 ];
 

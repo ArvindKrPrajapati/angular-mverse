@@ -21,6 +21,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { WatchNowComponent } from './watch-now/watch-now.component';
 import { FembedComponent } from './fembed/fembed.component';
+import { EmbedVideoComponent } from './embed-video/embed-video.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FembedComponent } from './fembed/fembed.component';
     LoadingComponent,
     WatchNowComponent,
     FembedComponent,
+    EmbedVideoComponent,
     ],
   imports: [
     BrowserModule,
