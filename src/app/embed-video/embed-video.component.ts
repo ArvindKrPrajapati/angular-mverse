@@ -30,13 +30,12 @@ export class EmbedVideoComponent implements OnInit {
         this.type = "tv"
         this.s = p.get("s")
         this.e = p.get("e")
-        let src = "https://vidsrc.me/embed/" + this.id
-        if (this.type == "tv") {
-          src = "https://vidsrc.me/embed/" + this.id + "/" + this.s + "-" + this.e
-        }
-
+        let src = "https://vidsrc.me/embed/" + this.id + "/" + this.s + "-" + this.e
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(src);
         this.fetchEpisodes()
+      } else {
+        let src = "https://vidsrc.me/embed/" + this.id
+        this.src = this.sanitizer.bypassSecurityTrustResourceUrl(src);
       }
 
     })
