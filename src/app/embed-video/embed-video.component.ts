@@ -30,6 +30,12 @@ export class EmbedVideoComponent implements OnInit {
         this.type = "tv"
         this.s = p.get("s")
         this.e = p.get("e")
+        let src = "https://vidsrc.me/embed/" + this.id
+        if (this.type == "tv") {
+          src = "https://vidsrc.me/embed/" + this.id + "/" + this.s + "-" + this.e
+        }
+
+        this.src = this.sanitizer.bypassSecurityTrustResourceUrl(src);
         this.fetchEpisodes()
       }
 
@@ -42,16 +48,13 @@ export class EmbedVideoComponent implements OnInit {
   }
   fetchData() {
     this.loading = true
-    let src = "https://vidsrc.me/embed/" + this.id
-    if (this.type = "tv") {
-      src = "https://vidsrc.me/embed/" + this.id + "/" + this.s + "-" + this.e
-    }
-    this.src = this.sanitizer.bypassSecurityTrustResourceUrl(src);
     this._http.get(this.url + this.type + "/" + this.id, { headers: new HttpHeaders({ "Authorization": this.token }) })
       .subscribe((res: any) => {
         this.data = res
         this.season = res.number_of_seasons;
         this.loading = false
+      }, (err: any) => {
+        // alert(this.type)
       })
   }
   fetchEpisodes() {
