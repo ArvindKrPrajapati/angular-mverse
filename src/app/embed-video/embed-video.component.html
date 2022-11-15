@@ -60,6 +60,16 @@
 
 
             </div>
+            <div class="row">
+                <div class="col-12 p-4">
+                    <p class="text-white">if current server doesnt work , i reomend to change server</p>
+                    <button (click)="changeServer('videsrc')" [class.active_server]="active=='vidsrc'"
+                        class="btn btn-sm e_link" style="height:40px"> <small>Server- </small> Visrc</button>
+                    <button [class.active_server]="active=='gdrive'" (click)="changeServer('gdrive')"
+                        class="btn btn-sm e_link" style="height:40px"><small>Server - </small> Gdrive</button>
+                </div>
+            </div>
+
 
             <div class="col-12 p-3" *ngIf="type=='tv'">
                 <div ngbDropdown class="d-inline-block">

@@ -50,6 +50,11 @@ h5 {
     overflow-y: scroll;
 }
 
+.active_server {
+    color: #020e13;
+    background-color: wheat;
+}
+
 @media screen and (max-width: 768px) {
     .title {
         font-size: 1.1em;
